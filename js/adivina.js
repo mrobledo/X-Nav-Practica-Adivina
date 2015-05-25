@@ -36,7 +36,7 @@
     function juegoCapitales(){  
     	alert("Comienza el juego de Capitales!");   
         if(capitales == ""){
-            $.getJSON("juegos/capitales.json", function(data) { 
+            $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/capitales.json", function(data) { 
                 capitales = data;
                 mostrarFotos(capitales);
             });    
@@ -49,7 +49,7 @@
     function juegoMuseos(){  
         alert("Comienza el juego de Museos!");   
         if(museos == ""){
-            $.getJSON("juegos/museos.json", function(data) { 
+            $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/museos.json", function(data) { 
                 museos = data;
                 mostrarFotos(museos);
             });    
@@ -63,7 +63,7 @@
         alert("Comienza el juego de Actores!");   
         if(actores == ""){
 console.log("pido json");
-            $.getJSON("juegos/actores.json", function(data) { 
+            $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/actores.json", function(data) { 
 console.log("pedido json");
                 actores = data;
                 mostrarFotos(actores);
