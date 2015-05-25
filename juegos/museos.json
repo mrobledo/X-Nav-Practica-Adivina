@@ -20,7 +20,7 @@
         { "type": "Feature",
           "geometry": {"coordinates": [40.4251, -74.0021]},        
           "properties": {"name": "Museo Guggenheim"}
-        }
+        },
 	
 	{ "type": "Feature",
           "geometry": {"coordinates": [34.0158, -118.4118]},        

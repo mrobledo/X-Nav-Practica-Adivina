@@ -20,7 +20,7 @@
         { "type": "Feature",
           "geometry": {"coordinates": [51.3031, -00.0733]},        
           "properties": {"name": "Actores londinenses"}
-        }
+        },
 	
 	{ "type": "Feature",
           "geometry": {"coordinates": [-34.3647, -58.2238]},        
