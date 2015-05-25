@@ -3,12 +3,12 @@
     "features": [
     
         { "type": "Feature",
-          "geometry": {"coordinates": [40.2459, -03.4209]},
+          "geometry": {"coordinates": [40.2459, -3.4209]},
           "properties": {"name": "Museo del Prado"}
         },
         
         { "type": "Feature",
-          "geometry": {"coordinates": [48.5112, 02.2056]},        
+          "geometry": {"coordinates": [48.5112, 2.2056]},        
           "properties": {"name": "Museo Louvre"}
         },
         

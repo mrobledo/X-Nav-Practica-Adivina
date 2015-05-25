@@ -3,28 +3,28 @@
     "features": [
     
         { "type": "Feature",
-          "geometry": {"coordinates": [40.2459, -03.4209]},
-          "properties": {"name": "Actores madrileños"}
+          "geometry": {"coordinates": [40.2459, -3.4209]},
+          "properties": {"name": "Actores españoles"}
         },
         
         { "type": "Feature",
-          "geometry": {"coordinates": [48.5112, 02.2056]},        
-          "properties": {"name": "Actores parisinos"}
+          "geometry": {"coordinates": [48.5112, 2.2056]},        
+          "properties": {"name": "Actores francia"}
         },
         
         { "type": "Feature",
           "geometry": {"coordinates": [40.4251, -74.0021]},        
-          "properties": {"name": "Actores neoyorquinos"}
+          "properties": {"name": "Actores estadounidenses"}
         },
         
         { "type": "Feature",
-          "geometry": {"coordinates": [51.3031, -00.0733]},        
-          "properties": {"name": "Actores londinenses"}
+          "geometry": {"coordinates": [51.3031, -0.0733]},        
+          "properties": {"name": "Actores ingleses"}
         },
 	
 	{ "type": "Feature",
           "geometry": {"coordinates": [-34.3647, -58.2238]},        
-          "properties": {"name": "Actores de Buenos Aires"}
+          "properties": {"name": "Actores argentinos"}
         }
     ]   
 }
