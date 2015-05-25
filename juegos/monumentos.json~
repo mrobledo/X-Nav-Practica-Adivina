@@ -4,22 +4,22 @@
     
         { "type": "Feature",
           "geometry": {"coordinates": [40.2459, -3.4209]},
-          "properties": {"name": "Actores españoles"}
+          "properties": {"name": "Monumentos Madrid"}
         },
         
         { "type": "Feature",
           "geometry": {"coordinates": [48.5112, 2.2056]},        
-          "properties": {"name": "Actores francia"}
+          "properties": {"name": "Monumentos Paris"}
         },
         
         { "type": "Feature",
-          "geometry": {"coordinates": [40.4251, -74.0021]},        
-          "properties": {"name": "Actores estadounidenses"}
+          "geometry": {"coordinates": [52.3128, 13.2438]},        
+          "properties": {"name": "Monumentos Berlin"}
         },
         
         { "type": "Feature",
-          "geometry": {"coordinates": [51.3031, -0.0733]},        
-          "properties": {"name": "Actores ingleses"}
+          "geometry": {"coordinates": [38.4300, -9.0800]},        
+          "properties": {"name": "Monumentos Lisboa"}
         },
 	
 	{ "type": "Feature",

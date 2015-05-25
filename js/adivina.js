@@ -1,3 +1,5 @@
+   //Por Mariano Martinez Robledo
+
     var coorElegidas = "";
     var coorSolucion = "";
     var juegoElegido = "";
@@ -5,7 +7,7 @@
     var dificultadTexto = "";
     var capitales = "";
     var museos = "";
-    var actores = "";
+    var monumentos = "";
     var lugar = "";
     var fotos = 0;
     var map;
@@ -14,13 +16,14 @@
     var numeroJuego = 1;
     var repetido = false;
     var actual;
+
      //preparar la pantalla de dificultad
     function eligeDificultad() {
         $("#info").hide();
         $("#dificultad").show();
     };
 
-
+    //comenzar el juego seleccionado
     function comenzarJuego(){
     	$("#dificultad").hide();
     	$("#fotos").show();
@@ -28,65 +31,51 @@
     		juegoCapitales();
         if (juegoElegido === "Museos") 
             juegoMuseos();
-        if (juegoElegido === "Actores") 
-            juegoActores();
+        if (juegoElegido === "Monumentos") 
+            juegoMonumentos();
     };
 
     //juego de capitales
     function juegoCapitales(){  
     	alert("Comienza el juego de Capitales!");   
-        if(capitales == ""){
-            $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/capitales.json", function(data) { 
-                capitales = data;
-                mostrarFotos(capitales);
-            });    
-        }else{
+        $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/capitales.json", function(data) {
+            capitales = data;
             mostrarFotos(capitales);
-        }         
+        });            
     };
 
     //juego de museos
     function juegoMuseos(){  
         alert("Comienza el juego de Museos!");   
-        if(museos == ""){
-            $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/museos.json", function(data) { 
-                museos = data;
-                mostrarFotos(museos);
-            });    
-        }else{
+        $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/museos.json", function(data) { 
+            museos = data;
             mostrarFotos(museos);
-        }         
+        });            
     };
 
-    //juego de actores
-    function juegoActores(){  
-        alert("Comienza el juego de Actores!");   
-        if(actores == ""){
-console.log("pido json");
-            $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/actores.json", function(data) { 
-console.log("pedido json");
-                actores = data;
-                mostrarFotos(actores);
-            });    
-        }else{
-console.log("else");
-            mostrarFotos(actores);
-        }         
+    //juego de monumentos
+    function juegoMonumentos(){  
+        alert("Comienza el juego de Monumentos!");   
+        $.getJSON("http://mrobledo.github.io/X-Nav-Practica-Adivina/juegos/monumentos.json", function(data) { 
+            monumentos = data;
+            mostrarFotos(monumentos);
+        });    
     };
 
+
+    //funcion para mostrar las fotos
     function mostrarFotos(juego){
     	var i = Math.floor(Math.random() * juego.features.length);
         
         //coordenadas del lugar del json
         coorSolucion = juego.features[i].geometry.coordinates;
-console.log("mostrarFotos"); 
         //lugar sacado del json
         lugar =  juego.features[i].properties.name;
     	var urlFlickr = "http://api.flickr.com/services/feeds/photos_public.gne?tags=" + lugar + "&tagmode=any&format=json&jsoncallback=?";
         $.getJSON(urlFlickr, function(data) {
         	i = 0;
         	interval = setInterval(function(){
-        		hayintervalo = true;
+        		intervalOn = true;
     			var imagen = "<img src="+ data.items[i].media.m +" style='width: 100%; height: 360px;'>";
     			$('#fotos').html(imagen);
                 if(i == data.items.length - 1)
@@ -99,6 +88,7 @@ console.log("mostrarFotos");
     	});
     };
 
+    //funcion para calcular la distancia entre la respuesta y la solucion
 	function calcularDistancia(e){
 
         var radio     = 6378.137;                         
@@ -113,12 +103,14 @@ console.log("mostrarFotos");
         return distancia.toFixed(2);                     
     };
 
+    //funcion para guardar los datos de la partida en el historial
     function guardarPartida(puntos){
         if (repetido==true){
+            repetido = false;
             window.history.go(actual);
         }
         var stateObj = {juego: juegoElegido, dif: dificultad, difTexto: dificultadTexto, puntos: puntos};
-        window.history.pushState(stateObj, "ADIVINA", juegoElegido);
+        window.history.pushState(stateObj, "ADIVINA", juegoElegido+numeroJuego);
         var info = "<li onclick='recuperarJuego("+numeroJuego+")'> Juego: " + juegoElegido + 
         ", Dificultad: " + dificultadTexto + ", Puntos: " + puntos + "</li>";
         
@@ -126,24 +118,32 @@ console.log("mostrarFotos");
         numeroJuego++;
     };
 
+    //funcion para jugar una partida guardada en el historial
     function recuperarJuego(pagina){
-        repetido = true;
-        actual = numeroJuego-pagina;
-        window.history.go(pagina-numeroJuego+1);
+        if((pagina+1) == numeroJuego){
+            $("#juegoElegido").show();
+            $("#dificultadElegida").show();        
+            comenzarJuego();
+        }
+        else{
+            repetido = true;
+console.log("retrocedo: "+(pagina-numeroJuego+1));
+            actual = numeroJuego-pagina-1;
+            window.history.go(pagina-numeroJuego+1);
+        }
     };
 
     
-
+//empieza el programa cuando el dom este cargado
 $(document).ready(function() {
 	$("#fotos").hide();
 	$("#dificultad").hide();
     $("#resultado").hide();
     $("#historialInfo").hide();
-
 	ponerMapa();
 
-//mirar a ver que hacemos con esto
 
+    //funcion para programar el funcionamiento cuando clicamos el mapa
 	function onMapClick(e) {
         if (intervalOn){
 		  clearInterval(interval);
@@ -157,12 +157,11 @@ $(document).ready(function() {
 		$("#fotos").hide();
         $("#resultado").show();
 		L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
-
         guardarPartida(puntos);
 	}
 	
 
-	// Seleccionada dificultad
+	// manejador para cuando clicamos el boton facil
 	$("#facil").click(function(){
         dificultadTexto = "Facil"
         $("#dificultadElegida").html("<p>Fácil</p>");
@@ -171,6 +170,7 @@ $(document).ready(function() {
 		comenzarJuego();
 	});
 
+    // manejador para cuando clicamos el boton medio
 	$("#medio").click(function(){
         dificultadTexto = "Medio"
         $("#dificultadElegida").html("<p>Medio</p>");
@@ -179,6 +179,7 @@ $(document).ready(function() {
 		comenzarJuego();
 	});
 
+    // manejador para cuando clicamos el boton dificil
 	$("#dificil").click(function(){
         dificultadTexto = "Dificil"
         $("#dificultadElegida").html("<p>Dificil</p>");
@@ -187,6 +188,7 @@ $(document).ready(function() {
 		comenzarJuego();
 	});
 
+    // manejador para cuando clicamos el boton experto
 	$("#experto").click(function(){
         dificultadTexto = "Experto"
         $("#dificultadElegida").html("<p>Experto</p>");
@@ -195,6 +197,7 @@ $(document).ready(function() {
 		comenzarJuego();
 	});
 
+    // manejador para cuando clicamos el boton historial, cargamos la pantalla historial
     $("#historial").click(function(){
         $("#fotos").hide();
         $("#dificultad").hide();
@@ -205,7 +208,7 @@ $(document).ready(function() {
         $("#historialInfo").show();  
     });
 
-	    //Elegido juego capitales    
+    //manejador para el boton capitales, cargamos datos de capitales y preparamos botones de dificultad   
     $("#capitales").click(function(){
         resetDatos();
     	juegoElegido = "Capitales";
@@ -215,6 +218,7 @@ $(document).ready(function() {
         alert("Elige la dificultad");
     });
 
+    //manejdaro para el boton museos, cargamos datos de museos y preparamos botones de dificultad 
     $("#museos").click(function(){
         resetDatos();
         juegoElegido = "Museos";
@@ -224,23 +228,27 @@ $(document).ready(function() {
         alert("Elige la dificultad");
     });
 
-    $("#actores").click(function(){
+    //manejador para el boton monumentos, cargamos datos de monumentos y preparamos botones de dificultad 
+    $("#monumentos").click(function(){
         resetDatos();
-        juegoElegido = "Actores";
+        juegoElegido = "Monumentos";
         $("#juegoElegido").html("<p>"+juegoElegido+"</p>");
         $("#juegoElegido").show();
         eligeDificultad();
         alert("Elige la dificultad");
     });
 
+    //manejador para el boton parar, para la partida y guardamos los datos
     $("#parar").click(function(){
         if (intervalOn){
           clearInterval(interval);
-          intervalOn = false;
+        intervalOn = false;
         }
         guardarPartida("Sin finalizar");
+        $( "#historial" ).trigger( "click" );
     });
 
+    //funcion para resetear los datos para una nueva partida
     function resetDatos(){
         $("#fotos").hide();
         $("#dificultad").hide();
@@ -258,10 +266,10 @@ $(document).ready(function() {
         ponerMapa();
     };
 
+    //manejador que salta cuando llamamos a la funcion window.history.go()
     window.onpopstate = function(event) {
-console.log("onpopstate");
         if (repetido == true) {
-            repetido = false;
+            //repetido = false;
             resetDatos();
             juegoElegido = event.state.juego;
             dificultad = event.state.dif;
@@ -273,6 +281,8 @@ console.log("onpopstate");
             comenzarJuego();
         }
     }
+
+    //funcion para cargar el mapa en la pagina
     function ponerMapa(){
         if(mapInicio == false)
             map.remove();

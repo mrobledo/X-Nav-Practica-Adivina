@@ -1,0 +1,30 @@
+{ "type": "FeatureCollection",
+
+    "features": [
+    
+        { "type": "Feature",
+          "geometry": {"coordinates": [40.2459, -3.4209]},
+          "properties": {"name": "Monumentos Madrid"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [48.5112, 2.2056]},        
+          "properties": {"name": "Monumentos Paris"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [52.3128, 13.2438]},        
+          "properties": {"name": "Monumentos Berlin"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [38.4300, -9.0800]},        
+          "properties": {"name": "Monumentos Lisboa"}
+        },
+	
+	{ "type": "Feature",
+          "geometry": {"coordinates": [37.2238, -5.5913]},        
+          "properties": {"name": "Monumentos Sevilla"}
+        }
+    ]   
+}

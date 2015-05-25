@@ -1,0 +1,30 @@
+{ "type": "FeatureCollection",
+
+    "features": [
+    
+        { "type": "Feature",
+          "geometry": {"coordinates": [-33.2725, -70.3854]},
+          "properties": {"name": "Santiago de Chile"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [52.3128, 13.2438]},        
+          "properties": {"name": "Berlín"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [45.2440, -75.4153]},        
+          "properties": {"name": "Ottawa"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [-41.1712, 174.4632]},        
+          "properties": {"name": "Wellington"}
+        },
+	
+	{ "type": "Feature",
+          "geometry": {"coordinates": [13.4500, 100.3100]},        
+          "properties": {"name": "Bangkok"}
+        }
+    ]   
+}

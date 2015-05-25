@@ -1,0 +1,30 @@
+{ "type": "FeatureCollection",
+
+    "features": [
+    
+        { "type": "Feature",
+          "geometry": {"coordinates": [40.2459, -3.4209]},
+          "properties": {"name": "Actores españoles"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [48.5112, 2.2056]},        
+          "properties": {"name": "Actores franceses"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [40.4251, -74.0021]},        
+          "properties": {"name": "Actores estadounidenses"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [51.3031, -0.0733]},        
+          "properties": {"name": "Actores ingleses"}
+        },
+	
+	{ "type": "Feature",
+          "geometry": {"coordinates": [-34.3647, -58.2238]},        
+          "properties": {"name": "Actores argentinos"}
+        }
+    ]   
+}
