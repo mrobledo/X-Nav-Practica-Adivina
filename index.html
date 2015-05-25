@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Juego Adivina">
+    <meta name="author" content="Mariano Martinez Robledo">
+
+    <title>Juego Adivina</title>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/adivina.js"></script>
+    <script src="js/leaflet.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/adivina.css" />
+
+</head>
+
+<body>
+<center>
+	<div id="Titulo">
+		<h1>Juego Adivina</h1>
+	</div>
+</center>
+	    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Elige juego -></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Juegos <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <button class="list-group-item" id = "capitales">Capitales</button> 
+                  <button class="list-group-item" id = "actores">Actores</button>
+                  <button class="list-group-item" id = "museos">Museos</button> 
+                </ul>
+                <li><button class="list-group-item" id = "parar">Parar juego</button></li> 
+                <li><button class="list-group-item" id = "historial">Historial</button></li> 
+              </li>
+            </ul>
+            <p id = "dificultadElegida" class="navbar-text navbar-right"></p>
+            <p id = "juegoElegido" class="navbar-text navbar-right"></p>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+ </div> <!-- /container -->
+ 
+<div class="container">
+ <!--Mapa -->           
+        <div id = "map" class="col-xs-12 col-md-6">
+             
+        </div>
+
+        <div id = "fotos" class="col-xs-12 col-md-6">
+            
+        </div>
+
+        <div id = "info" class="col-xs-12 col-md-6">
+          <h1>Instrucciones</h1>
+          <h2>Elige uno de los juegos disponibles en la barra de menus superior, luego selecciona un nivel de dificultad y comienza a jugar!
+            Veras como van apareciendo imagenes y tendrás que pinchar en el mapa en el lugar del mundo a donde crees que pertenecen estas imagenes. Cuanto más te acerques a la solución tu puntuación estará más próxima a 0, siendo 0 la mejor puntuación.</h2>
+        </div>
+
+
+      <div id="dificultad" class="col-xs-12 col-md-6">
+            <h1>Elige el nivel de dificultad:</h1>
+            <button id="facil" >Fácil</button>
+            <button id="medio" >Medio</button>
+            <button id="dificil" >Dificil</button>
+            <button id="experto" >Experto</button>
+      </div>
+
+
+      <div id = "resultado" class="col-xs-12 col-md-6">
+          <h1>Solución: </h1>
+          <h2 id="solucion"></h2>
+          <h1>Distancia entre el lugar y tu respuesta: </h1>
+          <h2 id = "distancia"></h2>
+          <h1>Puntos: </h1>
+          <h2 id = "puntos"></h2>
+          <h2>Para iniciar otro juego, seleccinalo en el menu superior.</h2>
+      </div>
+      
+      <div id = "historialInfo" class="col-xs-12 col-md-6">
+          <h1>Historial </h1>
+      </div>
+</div>
+
+ <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright Mariano Martinez Robledo &copy; martinezrobledo_mariano@hotmail.com 2015</p>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

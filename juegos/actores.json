@@ -1,0 +1,30 @@
+{ "type": "FeatureCollection",
+
+    "features": [
+    
+        { "type": "Feature",
+          "geometry": {"coordinates": [40.2459, -03.4209]},
+          "properties": {"name": "Actores madrileños"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [48.5112, 02.2056]},        
+          "properties": {"name": "Actores parisinos"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [40.4251, -74.0021]},        
+          "properties": {"name": "Actores neoyorquinos"}
+        },
+        
+        { "type": "Feature",
+          "geometry": {"coordinates": [51.3031, -00.0733]},        
+          "properties": {"name": "Actores londinenses"}
+        }
+	
+	{ "type": "Feature",
+          "geometry": {"coordinates": [-34.3647, -58.2238]},        
+          "properties": {"name": "Actores de Buenos Aires"}
+        }
+    ]   
+}
