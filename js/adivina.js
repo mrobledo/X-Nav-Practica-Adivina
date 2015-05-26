@@ -26,6 +26,7 @@
     //comenzar el juego seleccionado
     function comenzarJuego(){
     	$("#dificultad").hide();
+        $("#historialInfo").hide();
     	$("#fotos").show();
     	if (juegoElegido === "Capitales") 
     		juegoCapitales();
