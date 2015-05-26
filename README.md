@@ -12,7 +12,7 @@ Formulario
 
 · Nombre de su cuenta en el laboratorio del alumno: mrobledo
 
-· Resumen de las peculiaridades que se quieran mencionar sobre lo implemen- tado en la parte obligatoria:
+· Resumen de las peculiaridades que se quieran mencionar sobre lo implementado en la parte obligatoria:
 
 He realizado todas las partes obligatorias en una sola pagina html, con 3 tipos de juego. Hay unas pequeñas instrucciones para comenzar a jugar, que creo que hacen que sea más sencillo.
 
