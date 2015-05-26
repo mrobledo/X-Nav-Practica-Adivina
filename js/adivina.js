@@ -99,6 +99,8 @@
 			* Math.cos((coorSolucion[0] * Math.PI)/180) * Math.sin(distLong/2) *Math.sin(distLong/2);
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         var distancia = radio * c;
+        if (distancia < 300) 
+            distancia = 0;
 
         return distancia.toFixed(2);                     
     };
@@ -191,6 +193,8 @@ $(document).ready(function() {
     // manejador para cuando clicamos el boton experto
 	$("#experto").click(function(){
         dificultadTexto = "Experto"
+        $("#resultado").hide();
+        $("#historialInfo").hide();
         $("#dificultadElegida").html("<p>Experto</p>");
         $("#dificultadElegida").show();
 		dificultad = 1000;
